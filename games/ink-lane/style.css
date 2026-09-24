@@ -1,0 +1,33 @@
+.hud-top { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 8px); left: 50%; translate: -50% 0; z-index: 4; }
+#score { font: 400 20px "Permanent Marker", cursive; background: rgba(255,245,226,.92); border: 2px solid var(--ink); border-radius: 12px; padding: 2px 14px; }
+#feed { position: fixed; top: 54px; right: 12px; z-index: 4; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; pointer-events: none; }
+#feed div { background: rgba(255,245,226,.9); border: 1.5px solid var(--ink); border-radius: 10px; padding: 1px 10px; font-size: 16px; }
+.hud-bottom { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); translate: -50% 0; z-index: 4; display: flex; gap: 14px; align-items: flex-end;
+  background: rgba(255,245,226,.92); border: 2px solid var(--ink); border-radius: 16px; padding: 8px 12px; box-shadow: 3px 3px 0 rgba(43,34,51,.3); }
+#stats { font-size: 17px; min-width: 150px; }
+#stats b { font: 400 18px "Permanent Marker", cursive; color: var(--clay); display: block; }
+.xp { height: 6px; background: rgba(43,34,51,.2); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+.xp i { display: block; height: 100%; background: var(--clay); }
+#skills { display: flex; gap: 8px; }
+.skill { position: relative; width: 66px; height: 66px; border: 2px solid var(--ink); border-radius: 12px; background: #fff; overflow: hidden; text-align: center; font-size: 13px; line-height: 1.05; padding-top: 22px; }
+.skill kbd { position: absolute; top: 3px; left: 5px; font: 400 16px "Permanent Marker", cursive; color: var(--clay); }
+.skill b { font-size: 13px; font-weight: 700; }
+.skill i { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: rgba(43,34,51,.45); }
+.skill span { position: absolute; inset: 0; display: grid; place-items: center; font: 400 22px "Permanent Marker", cursive; color: #fff; text-shadow: 1px 1px 0 var(--ink); }
+.skill.nomana { background: #DDE4F2; }
+#respawn { position: fixed; top: 40%; left: 50%; translate: -50% 0; z-index: 4; font: 400 30px "Permanent Marker", cursive; color: #fff; text-shadow: 2px 3px 0 var(--ink); }
+.picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 8px 0; }
+.pick { background: #fff; border: 3px solid var(--ink); border-radius: 16px; padding: 6px 8px 10px; box-shadow: 3px 4px 0 rgba(43,34,51,.35); transition: transform .12s; }
+.pick:hover { transform: translateY(-4px) rotate(-1deg); }
+.pick canvas { width: 150px; height: 116px; display: block; margin: 0 auto; }
+.pick b { display: block; font: 400 22px "Permanent Marker", cursive; color: var(--clay); }
+.pick small { display: block; font-size: 14px; opacity: .8; margin-top: 2px; }
+#touch { position: fixed; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 110px); z-index: 5; width: 200px; height: 200px; }
+#touch button { position: absolute; border-radius: 50%; border: 3px solid var(--ink); background: rgba(255,245,226,.88); font: 400 20px "Permanent Marker", cursive; box-shadow: 2px 3px 0 rgba(43,34,51,.4); touch-action: none; }
+#touch .atk { right: 0; bottom: 0; width: 86px; height: 86px; background: rgba(217,119,87,.92); color: #fff; font-size: 30px; }
+#touch .sk { width: 58px; height: 58px; }
+#touch .sk0 { right: 96px; bottom: 0; } #touch .sk1 { right: 88px; bottom: 70px; } #touch .sk2 { right: 20px; bottom: 100px; } #touch .sk3 { right: 150px; bottom: 120px; background: rgba(232,170,56,.9); }
+#touch .cd { opacity: .45; }
+body.menu .hud-top, body.menu .hud-bottom, body.menu #feed, body.menu #touch, body.menu #btn-pause { display: none; }
+@media (pointer: coarse) { .hud-bottom { left: 12px; translate: none; } #skills { display: none; } }
+@media (max-width: 560px) { .skill { width: 54px; height: 54px; font-size: 11px; } #stats { min-width: 110px; font-size: 15px; } }

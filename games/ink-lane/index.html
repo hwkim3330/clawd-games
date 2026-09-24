@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ink Lane — 잉크 라인</title>
+<meta name="description" content="A hand-painted 3v3 one-lane battle arena with Clawd heroes.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../lib/ui.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="menu">
+<canvas class="game" id="game"></canvas>
+<div class="hud-top"><div id="score"></div></div>
+<div id="feed"></div>
+<div class="hud-bottom"><div id="stats"></div><div id="skills"></div></div>
+<div id="respawn" hidden></div>
+<div id="touch" hidden></div>
+<button class="hud-btn" id="btn-pause" aria-label="pause">II</button>
+
+<div class="screen" id="loading"><div class="card slim"><h1 class="logo">Ink Lane</h1><p id="load-text"></p><div class="bar"><i id="load-bar"></i></div></div></div>
+<div class="screen" id="title" hidden>
+  <div class="card wide">
+    <h1 class="logo">Ink Lane <small>잉크 라인</small></h1>
+    <p class="lead" id="lead"></p>
+    <div class="picks" id="picks"></div>
+    <p class="keys" id="keys"></p>
+    <div class="row"><a class="ghost" href="../../" id="more"></a></div>
+  </div>
+</div>
+<div class="screen" id="msg" hidden><div class="card"><canvas class="clawd-portrait" width="360" height="300"></canvas><h2 id="msg-title"></h2><p class="lead" id="msg-text"></p><div class="row" id="msg-buttons"></div></div></div>
+
+<script>const PROJECT = { w: 192, h: 192, bpm: 110, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script src="../../lib/input.js"></script>
+<script>
+  const KO = (navigator.language || 'ko').toLowerCase().startsWith('ko');
+  document.getElementById('lead').textContent = KO ? '영웅을 골라 미니언과 함께 라인을 밀고, 탑 두 개를 부수고 적의 핵을 깨세요. 3 대 3!' : 'Pick a hero, push the lane with your minions, take two towers and break the enemy core. 3 vs 3!';
+  document.getElementById('keys').innerHTML = KO ? '<kbd>우클릭</kbd> 이동/공격 · <kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd> 스킬(마우스 방향) · <kbd>A</kbd> 공격 이동 · <kbd>S</kbd> 정지 · <kbd>Space</kbd> 카메라 고정<br>모바일: 조이스틱 이동 · ⚔ 공격 · 스킬 자동 조준' : '<kbd>right-click</kbd> move / attack · <kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd> skills at the cursor · <kbd>A</kbd> attack-move · <kbd>S</kbd> stop · <kbd>Space</kbd> lock camera<br>touch: joystick to move · ⚔ attack · skills auto-aim';
+  document.getElementById('more').textContent = KO ? '다른 게임' : 'More games';
+</script>
+<script src="game.js"></script>
+</body>
+</html>
