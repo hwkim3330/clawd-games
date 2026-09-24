@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ink Wars — 잉크 전쟁</title>
+<meta name="description" content="A hand-painted real-time strategy game: gather ink and paper, build, and out-fight the Smudge Clawds.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../lib/ui.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="menu">
+<canvas class="game" id="game"></canvas>
+
+<header class="bar-top">
+  <span class="res"><i class="ink"></i><b id="res-ink">0</b></span>
+  <span class="res"><i class="paper"></i><b id="res-paper">0</b></span>
+  <span class="res sup"><i class="pop"></i><b id="res-supply">0/0</b></span>
+  <span class="clock" id="clock">0:00</span>
+  <button class="hud-btn" id="btn-pause" aria-label="pause">II</button>
+</header>
+
+<footer class="bar-bottom">
+  <canvas id="minimap" width="192" height="144"></canvas>
+  <div class="sel" id="sel-info"></div>
+  <div class="cmds" id="commands"></div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<div class="screen" id="loading"><div class="card slim"><h1 class="logo">Ink Wars</h1><p id="load-text"></p><div class="bar"><i id="load-bar"></i></div></div></div>
+<div class="screen" id="title" hidden>
+  <div class="card">
+    <canvas class="clawd-portrait" width="360" height="300"></canvas>
+    <h1 class="logo">Ink Wars <small>잉크 전쟁</small></h1>
+    <p class="lead" id="lead"></p>
+    <div class="levels" id="diff"></div>
+    <p class="keys" id="keys"></p>
+    <div class="row"><a class="ghost" href="../../" id="more"></a></div>
+  </div>
+</div>
+<div class="screen" id="msg" hidden><div class="card"><canvas class="clawd-portrait" width="360" height="300"></canvas><h2 id="msg-title"></h2><p class="lead" id="msg-text"></p><div class="row" id="msg-buttons"></div></div></div>
+
+<script>const PROJECT = { w: 192, h: 192, bpm: 110, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script>
+  const KO = (navigator.language || 'ko').toLowerCase().startsWith('ko');
+  document.getElementById('lead').textContent = KO ? '잉크와 종이를 모아 기지를 세우고, 얼룩 클로들의 본부를 무너뜨리세요.' : 'Gather ink and paper, build a base, and bring down the Smudge Clawds\' headquarters.';
+  document.getElementById('keys').innerHTML = KO ? '드래그 선택 · <kbd>우클릭</kbd> 이동/공격/채집 · <kbd>A</kbd> 공격 이동 · <kbd>S</kbd> 정지 · <kbd>H</kbd> 본부 · 휠 확대<br>모바일: 탭 선택/명령 · 한 손가락 드래그 선택 · 두 손가락 이동·확대' : 'drag to select · <kbd>right-click</kbd> move / attack / gather · <kbd>A</kbd> attack-move · <kbd>S</kbd> stop · <kbd>H</kbd> home · wheel zoom<br>touch: tap to select / command · one-finger drag selects · two fingers pan & zoom';
+  document.getElementById('more').textContent = KO ? '다른 게임' : 'More games';
+</script>
+<script src="game.js"></script>
+</body>
+</html>
