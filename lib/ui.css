@@ -1,0 +1,52 @@
+/* ui.css — shared look for the arcade's menus and touch controls: paper cards, inked borders, marker type. */
+:root { color-scheme: light; --ink: #2b2233; --paper: #f3ebdc; --clay: #d97757; --cream: #fff5e2; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--paper); color: var(--ink);
+  font: 18px/1.35 "Gaegu", ui-rounded, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
+canvas.game { position: fixed; inset: 0; width: 100vw; height: 100dvh; display: block; touch-action: none; }
+.p5Canvas { display: none !important; }
+
+.screen { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; z-index: 5;
+  background: radial-gradient(ellipse at center, rgba(243,235,220,.25), rgba(243,235,220,.8)); }
+.screen[hidden] { display: none; }
+.card { width: min(520px, 100%); max-height: calc(100dvh - 32px); overflow: auto; text-align: center;
+  background: rgba(255,245,226,.95); border: 3px solid var(--ink); border-radius: 22px 18px 24px 16px / 16px 24px 18px 22px;
+  box-shadow: 5px 6px 0 rgba(43,34,51,.35); padding: 20px 22px 18px; }
+.card.slim { width: min(360px, 100%); }
+.card.wide { width: min(760px, 100%); }
+.logo { font: 400 clamp(38px, 10vw, 62px)/1 "Permanent Marker", cursive; margin: 0 0 6px; color: var(--clay); text-shadow: 3px 4px 0 var(--ink); }
+.logo small { display: block; font: 700 25px/1.2 "Gaegu", cursive; color: var(--ink); text-shadow: none; margin-top: 4px; }
+h2 { font: 400 32px/1.1 "Permanent Marker", cursive; margin: 0 0 6px; color: var(--clay); text-shadow: 2px 3px 0 var(--ink); }
+.lead { margin: 6px 0 10px; font-size: 20px; }
+.keys { font-size: 16px; opacity: .8; margin: 6px 0 0; }
+.keys kbd { font: 700 14px ui-monospace, monospace; border: 1.5px solid var(--ink); border-bottom-width: 3px; border-radius: 6px; padding: 0 5px; background: #fff; }
+.row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+button, a.ghost { font: 700 20px "Gaegu", cursive; color: var(--ink); cursor: pointer; text-decoration: none; }
+.big { font-size: 27px; padding: 8px 32px 10px; background: var(--clay); color: #fff; border: 3px solid var(--ink);
+  border-radius: 16px 12px 18px 12px; box-shadow: 3px 4px 0 var(--ink); }
+.big:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.big.alt { background: #fff; color: var(--ink); }
+.ghost { background: none; border: 2px dashed rgba(43,34,51,.4); border-radius: 12px; padding: 4px 14px; }
+.bar { height: 16px; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; margin-top: 10px; }
+.bar i { display: block; height: 100%; width: 0; background: var(--clay); transition: width .15s; }
+.clawd-portrait { width: 150px; height: 125px; display: block; margin: -6px auto -4px; }
+.levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin: 10px 0 4px; }
+.levels button { background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 6px 4px; font-size: 17px; line-height: 1.1; }
+.levels button:disabled { opacity: .35; cursor: default; }
+.levels b { display: block; font: 400 20px "Permanent Marker", cursive; color: var(--clay); }
+
+.hud-btn { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: 12px; z-index: 4; width: 40px; height: 40px; border-radius: 50%;
+  border: 2px solid var(--ink); background: rgba(255,245,226,.9); font: 400 16px "Permanent Marker", cursive; box-shadow: 2px 2px 0 rgba(43,34,51,.4); }
+.hud-btn[hidden] { display: none; }
+
+/* touch pad (platformers) */
+.pf-pad { position: fixed; inset: auto 0 0 0; height: 150px; z-index: 3; display: none; justify-content: space-between; align-items: flex-end;
+  padding: 0 14px calc(env(safe-area-inset-bottom, 0px) + 16px); pointer-events: none; touch-action: none; }
+.pf-pad.show { display: flex; }
+.pf-pad button { pointer-events: auto; width: 64px; height: 64px; border-radius: 50%; border: 3px solid var(--ink); background: rgba(255,245,226,.8);
+  font: 400 22px "Permanent Marker", cursive; color: var(--ink); box-shadow: 2px 3px 0 rgba(43,34,51,.4); touch-action: none; }
+.pf-dpad, .pf-ab { display: flex; gap: 10px; align-items: flex-end; }
+.pf-dpad button[data-k="down"] { width: 52px; height: 52px; margin-bottom: 6px; font-size: 16px; }
+.pf-ab .pf-a { width: 76px; height: 76px; background: rgba(217,119,87,.85); color: #fff; }
+.pf-ab .pf-b { margin-bottom: 30px; }
+body.menu .pf-pad { display: none !important; }
