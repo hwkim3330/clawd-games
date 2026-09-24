@@ -67,7 +67,7 @@
   ];
   const g = document.getElementById('grid');
   for (const x of GAMES) {
-    g.insertAdjacentHTML('beforeend', `<a class="game${x.soon ? ' soon' : ''}" href="${x.path}"><img src="${x.path}thumb.jpg" alt="" loading="lazy"><div><b>${x.name}</b> ${x.ko}<small>${x.genre}</small><p>${x.desc}</p></div></a>`);
+    g.insertAdjacentHTML('beforeend', `<a class="game${x.soon ? ' soon' : ''}" href="${x.path}index.html"><img src="${x.path}thumb.jpg" alt="" loading="lazy"><div><b>${x.name}</b> ${x.ko}<small>${x.genre}</small><p>${x.desc}</p></div></a>`);
   }
 </script>
 </body>
