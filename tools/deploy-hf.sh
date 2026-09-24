@@ -10,6 +10,6 @@ space = sys.argv[1]
 api = HfApi()
 api.create_repo(space, repo_type="space", space_sdk="static", exist_ok=True)
 api.upload_folder(folder_path=".", repo_id=space, repo_type="space",
-                  ignore_patterns=[".git/*", "tools/*", "*.py"], commit_message="Deploy Clawd Arcade")
+                  ignore_patterns=[".git/*", "tools/*", "*.py", "video/node_modules/*", "video/out/*", "video/assets/*"], commit_message="Deploy Clawd Arcade")
 print(f"https://huggingface.co/spaces/{space}")
 PY

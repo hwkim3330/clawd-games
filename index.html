@@ -24,6 +24,10 @@
   a.game small { display: block; font-size: 15px; opacity: .7; margin-top: 2px; }
   a.game p { margin: 6px 0 0; font-size: 18px; }
   .soon { opacity: .55; pointer-events: none; }
+  .trailer { margin: 0 auto 28px; max-width: 860px; }
+  .trailer video { width: 100%; display: block; border: 3px solid var(--ink); border-radius: 18px; box-shadow: 4px 5px 0 rgba(43,34,51,.35); background: #000; }
+  .trailer figcaption { text-align: center; font-size: 15px; opacity: .75; margin-top: 8px; }
+  .trailer a { color: inherit; }
   footer { margin-top: 36px; text-align: center; font-size: 15px; opacity: .75; }
   footer a { color: inherit; }
 </style>
@@ -32,6 +36,10 @@
 <main>
   <h1>Clawd Arcade</h1>
   <p class="sub">손그림 클로가 나오는 오리지널 브라우저 게임 모음 · Original games with a hand-painted Clawd</p>
+  <figure class="trailer">
+    <video src="media/trailer.mp4" poster="media/trailer-poster.jpg" controls playsinline preload="metadata"></video>
+    <figcaption>Clawd and the Hat Box · <a href="video/STORYBOARD.md">storyboard</a> · <a href="video/src/scenes/trailer.js">scene code</a> — painted frame by frame with Claude Animation Base</figcaption>
+  </figure>
   <div class="grid" id="grid"></div>
   <footer>
     Clawd painting: <a href="https://github.com/JohnHeibel/ClaudeAnimationBase">Claude Animation Base</a> (MIT) · p5.js + p5.brush<br>

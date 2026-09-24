@@ -26,6 +26,12 @@ These are original browser games starring Clawd, painted in watercolour and ink.
 | [Ink Beat](games/ink-beat/) · 잉크 비트 | draw-to-the-beat rhythm | a new mash-up: draw the shape as its beat lands (judged on the WebAudio clock at pen-up); each shape is a dance move |
 | [Clawd Leap](games/clawd-leap/) · 클로 점프 | platformer | four painted pages, stamp boxes, an ink-throwing hat, the Great Eraser; coyote time + jump buffer |
 
+## Trailer
+
+[`media/trailer.mp4`](media/trailer.mp4) is *Clawd and the Hat Box*, a 16-second film painted frame by frame with Claude Animation Base.
+The storyboard is in [`video/STORYBOARD.md`](video/STORYBOARD.md), the scene in [`video/src/scenes/trailer.js`](video/src/scenes/trailer.js), and the
+soundtrack is synthesised. To re-render: `cd video && npm install && node render.mjs --gpu-angle=vulkan --frames --workers=4 && node render.mjs --encode --audio=assets/trailer.wav --out=out/trailer.mp4`.
+
 ## How Clawd is drawn
 
 Clawd, with its 31 emotions, hats and poses, is painted by [Claude Animation Base](https://github.com/JohnHeibel/ClaudeAnimationBase)
