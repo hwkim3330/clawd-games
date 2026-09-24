@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ink Realms — 잉크 왕국</title>
+<meta name="description" content="A tiny online-RPG-style adventure in a 3D paper diorama with painted Clawd cut-outs.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../lib/ui.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="menu">
+<canvas class="game" id="game"></canvas>
+<div id="plates"></div>
+
+<div class="frame" id="pf"><b id="pf-name"></b><div class="hpbar"><i id="pf-hp"></i><span id="pf-hp-t"></span></div><div class="mpbar"><i id="pf-mp"></i><span id="pf-mp-t"></span></div></div>
+<div class="frame target" id="tf" hidden><b id="tf-name"></b><div class="hpbar"><i id="tf-hp"></i><span id="tf-hp-t"></span></div></div>
+<div id="zone"></div>
+<canvas id="minimap" width="150" height="150"></canvas>
+<div id="drops"></div>
+<div id="tracker"></div>
+<div id="questlog" hidden></div>
+<div id="log"></div>
+<div id="actionbar"><div class="xp"><i id="xpbar"></i></div><div id="bar"></div></div>
+<div id="deadmsg" hidden></div>
+
+<div class="dialog" id="dialog" hidden><b id="dlg-name"></b><p id="dlg-text"></p><div class="row" id="dlg-buttons"></div></div>
+
+<div class="screen" id="loading"><div class="card slim"><h1 class="logo">Ink Realms</h1><p id="load-text"></p><div class="bar"><i id="load-bar"></i></div></div></div>
+<div class="screen" id="title" hidden>
+  <div class="card wide">
+    <h1 class="logo">Ink Realms <small>잉크 왕국</small></h1>
+    <p class="lead" id="lead"></p>
+    <div class="picks" id="picks"></div>
+    <p class="keys" id="keys"></p>
+    <div class="row"><a class="ghost" href="../../" id="more"></a></div>
+  </div>
+</div>
+<div class="screen" id="msg" hidden><div class="card"><h2 id="msg-title"></h2><p class="lead" id="msg-text"></p><div class="row" id="msg-buttons"></div></div></div>
+
+<script>const PROJECT = { w: 256, h: 256, bpm: 100, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script src="../../lib/input.js"></script>
+<script>
+  const KO = (navigator.language || 'ko').toLowerCase().startsWith('ko');
+  document.getElementById('lead').textContent = KO ? '종이로 접은 3D 세상. 마을에서 퀘스트를 받고, 레벨을 올려 폐허의 지우개 대마왕을 쓰러뜨리세요.' : 'A folded-paper 3D world. Take quests in the village, level up, and bring down the Great Eraser in the ruins.';
+  document.getElementById('keys').innerHTML = KO ? '<kbd>WASD</kbd> 이동 · <kbd>우클릭 드래그</kbd>/<kbd>Q</kbd><kbd>E</kbd> 시점 · 휠 줌 · <kbd>Space</kbd> 점프 · <kbd>Tab</kbd>/클릭 대상 · <kbd>1</kbd>–<kbd>4</kbd> 기술 · <kbd>F</kbd> 대화 · <kbd>L</kbd> 퀘스트' : '<kbd>WASD</kbd> move · <kbd>right-drag</kbd>/<kbd>Q</kbd><kbd>E</kbd> camera · wheel zoom · <kbd>Space</kbd> jump · <kbd>Tab</kbd>/click target · <kbd>1</kbd>–<kbd>4</kbd> abilities · <kbd>F</kbd> talk · <kbd>L</kbd> quests';
+  document.getElementById('more').textContent = KO ? '다른 게임' : 'More games';
+</script>
+<script type="module" src="game.js"></script>
+</body>
+</html>

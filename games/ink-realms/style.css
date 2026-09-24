@@ -1,0 +1,60 @@
+.frame { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); left: 12px; z-index: 4; width: 230px; background: rgba(255,245,226,.92); border: 2px solid var(--ink); border-radius: 12px; padding: 5px 8px 7px; box-shadow: 2px 3px 0 rgba(43,34,51,.3); }
+.frame.target { left: 256px; }
+.frame b { font: 400 16px "Permanent Marker", cursive; color: var(--clay); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hpbar, .mpbar { position: relative; height: 15px; background: rgba(43,34,51,.2); border: 1.5px solid var(--ink); border-radius: 6px; overflow: hidden; margin-top: 3px; }
+.mpbar { height: 11px; }
+.hpbar i, .mpbar i { display: block; height: 100%; background: #6FB35E; transition: width .15s; }
+.target .hpbar i { background: #D8394E; }
+.mpbar i { background: #6F8FD9; }
+.hpbar span, .mpbar span { position: absolute; inset: 0; font-size: 12px; line-height: 13px; text-align: center; color: #fff; text-shadow: 0 0 2px #000, 0 0 2px #000; }
+.mpbar span { font-size: 10px; line-height: 9px; }
+#zone { position: fixed; top: 12px; left: 50%; translate: -50% 0; z-index: 4; font: 400 20px "Permanent Marker", cursive; color: #fff; text-shadow: 2px 2px 0 var(--ink); pointer-events: none; }
+#minimap { position: fixed; top: 10px; right: 12px; z-index: 4; width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--ink); background: #B7D3A0; }
+#drops { position: fixed; top: 166px; right: 20px; z-index: 4; font: 400 18px "Permanent Marker", cursive; color: #2F3C7A; background: rgba(255,245,226,.9); border-radius: 10px; padding: 0 10px; border: 2px solid var(--ink); }
+#tracker { position: fixed; top: 200px; right: 12px; z-index: 4; width: 220px; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+#tracker div { background: rgba(43,34,51,.55); color: #fff; border-radius: 10px; padding: 4px 10px; font-size: 16px; }
+#tracker b { display: block; color: #F2C53D; font-size: 17px; }
+#tracker .done b { color: #9FE39F; }
+#questlog { position: fixed; top: 50%; left: 50%; translate: -50% -50%; z-index: 6; width: min(420px, 92vw); background: rgba(255,245,226,.97); border: 3px solid var(--ink); border-radius: 16px; padding: 12px 18px; box-shadow: 4px 5px 0 rgba(43,34,51,.35); }
+#questlog h3 { font: 400 24px "Permanent Marker", cursive; color: var(--clay); margin: 0 0 6px; }
+#questlog p { margin: 4px 0; opacity: .5; } #questlog p.on { opacity: 1; } #questlog p.done { opacity: .8; text-decoration: line-through; }
+#log { position: fixed; left: 12px; bottom: 108px; z-index: 4; width: min(380px, 60vw); font-size: 16px; text-shadow: 0 0 3px #000, 0 0 2px #000; pointer-events: none; }
+#actionbar { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); translate: -50% 0; z-index: 4; }
+#actionbar .xp { height: 7px; background: rgba(43,34,51,.35); border: 1.5px solid var(--ink); border-radius: 5px; overflow: hidden; margin-bottom: 5px; }
+#actionbar .xp i { display: block; height: 100%; background: #B07BD9; }
+#bar { display: flex; gap: 8px; }
+#bar button { position: relative; width: 70px; height: 70px; border: 2px solid var(--ink); border-radius: 12px; background: #fff; overflow: hidden; font-size: 13px; line-height: 1.05; padding: 20px 2px 2px; box-shadow: 2px 3px 0 rgba(43,34,51,.35); }
+#bar button kbd { position: absolute; top: 2px; left: 5px; font: 400 15px "Permanent Marker", cursive; color: var(--clay); }
+#bar button small { position: absolute; bottom: 2px; right: 5px; font-size: 11px; color: #3F5FB0; }
+#bar button i { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: rgba(43,34,51,.5); }
+#bar button.nomana { background: #DDE4F2; }
+#bar .tabbtn { width: 56px; font: 400 22px "Permanent Marker", cursive; padding: 0; }
+#plates { position: fixed; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.plate { position: absolute; translate: -50% -100%; text-align: center; min-width: 90px; }
+.plate span { font-size: 14px; color: #fff; text-shadow: 0 0 3px #000, 0 0 2px #000; white-space: nowrap; }
+.plate span i { font-style: normal; color: #F2C53D; }
+.plate b { display: block; height: 5px; background: #D8394E; margin: 2px auto 0; max-width: 80px; border: 1px solid #000; }
+.plate.sel span { color: #F2C53D; font-size: 16px; }
+.plate.boss span { font-size: 18px; color: #FFB0C0; }
+.plate.npc span { color: #FFE9A0; }
+.float { position: absolute; translate: -50% -100%; font: 400 20px "Permanent Marker", cursive; text-shadow: 0 0 3px #000, 1px 1px 0 #000; white-space: nowrap; }
+.float.big { font-size: 30px; }
+.dialog { position: fixed; left: 50%; bottom: 120px; translate: -50% 0; z-index: 6; width: min(560px, 94vw); background: rgba(255,245,226,.97); border: 3px solid var(--ink); border-radius: 16px; padding: 12px 18px 14px; box-shadow: 4px 5px 0 rgba(43,34,51,.35); }
+.dialog b { font: 400 22px "Permanent Marker", cursive; color: var(--clay); }
+.dialog p { font-size: 20px; margin: 6px 0 4px; }
+#deadmsg { position: fixed; inset: 0; z-index: 5; display: grid; place-items: center; background: rgba(40,33,52,.45); font: 400 36px "Permanent Marker", cursive; color: #fff; text-shadow: 2px 3px 0 var(--ink); }
+#deadmsg::after { content: "…"; }
+.picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 8px 0; }
+.pick { background: #fff; border: 3px solid var(--ink); border-radius: 16px; padding: 6px 8px 10px; box-shadow: 3px 4px 0 rgba(43,34,51,.35); }
+.pick canvas { width: 150px; height: 116px; display: block; margin: 0 auto; }
+.pick b { display: block; font: 400 22px "Permanent Marker", cursive; color: var(--clay); }
+.pick small { font-size: 14px; opacity: .8; }
+body.menu .frame, body.menu #zone, body.menu #minimap, body.menu #drops, body.menu #tracker, body.menu #log, body.menu #actionbar, body.menu #plates { display: none; }
+@media (max-width: 700px) {
+  .frame { width: 170px; } .frame.target { left: auto; right: 12px; top: 170px; }
+  #minimap { width: 100px; height: 100px; } #drops { top: 116px; } #tracker { top: 150px; width: 170px; } #tracker div { font-size: 13px; }
+  #bar button { width: 54px; height: 54px; font-size: 10px; padding-top: 16px; }
+  #actionbar { left: auto; right: 10px; translate: none; bottom: 16px; } #bar { flex-wrap: wrap; width: 190px; justify-content: flex-end; }
+  #log { display: none; }
+}
+#deadmsg[hidden], #questlog[hidden], .dialog[hidden], .frame[hidden] { display: none; }

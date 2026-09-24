@@ -22,6 +22,7 @@ These are original browser games starring Clawd, painted in watercolour and ink.
 | [Clawd's Quest](games/clawd-quest/) · 클로의 모험 | top-down adventure | 3×3 overworld + dungeon: cut bushes, key → locked door → bombs → cracked wall → Ink Kraken; autosave |
 | [Ink Wars](games/ink-wars/) · 잉크 전쟁 | real-time strategy | gather ink & paper, build HQ / barracks / houses / towers, A* pathing, fog of war, minimap, 3 AI levels, touch controls |
 | [Ink Lane](games/ink-lane/) · 잉크 라인 | 3v3 battle arena | three heroes with Q W E R (skillshots, dashes, traps, ultimates), minion waves, towers in order, core, levels, AI allies & foes |
+| [Ink Realms](games/ink-realms/) · 잉크 왕국 | 3D online-RPG style | Three.js paper diorama with painted cut-outs; village quest chain, tab-target combat, 1–4 action bar, levels, loot, raid boss |
 | [Clawd Leap](games/clawd-leap/) · 클로 점프 | platformer | four painted pages, stamp boxes, an ink-throwing hat, the Great Eraser; coyote time + jump buffer |
 
 ## How Clawd is drawn
