@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ink Spell — 잉크 주문</title>
+<meta name="description" content="Draw shapes to cast spells and protect Clawd from ink monsters.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div class="screen" id="loading">
+  <div class="card slim">
+    <h1 class="logo">Ink Spell</h1>
+    <p id="load-text">클로를 그리는 중…</p>
+    <div class="bar"><i id="load-bar"></i></div>
+  </div>
+</div>
+
+<div class="screen" id="title" hidden>
+  <div class="card">
+    <canvas class="clawd-portrait" width="360" height="300"></canvas>
+    <h1 class="logo">Ink Spell <small>잉크 주문</small></h1>
+    <p class="lead" data-t="lead"></p>
+    <ul class="spells" id="spell-list"></ul>
+    <div class="row">
+      <button class="big" id="btn-start" data-t="start"></button>
+    </div>
+    <p class="best" id="best"></p>
+    <div class="row small">
+      <button class="ghost" id="btn-sound"></button>
+      <a class="ghost" href="../../" data-t="more"></a>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="cards" hidden>
+  <div class="card wide">
+    <h2 id="cards-title"></h2>
+    <p class="lead" data-t="pick"></p>
+    <div class="choices" id="choices"></div>
+  </div>
+</div>
+
+<div class="screen" id="over" hidden>
+  <div class="card">
+    <canvas class="clawd-portrait" width="360" height="300"></canvas>
+    <h2 id="over-title"></h2>
+    <p class="lead" id="over-text"></p>
+    <div class="row">
+      <button class="big" id="btn-again" data-t="again"></button>
+    </div>
+    <div class="row small"><a class="ghost" href="../../" data-t="more"></a></div>
+  </div>
+</div>
+
+<div class="hud-buttons">
+  <button id="btn-pause" aria-label="pause">II</button>
+</div>
+
+<!-- Clawd is painted by the vendored Claude Animation Base (MIT) with p5.js + p5.brush, baked into sprites at load -->
+<script>const PROJECT = { w: 320, h: 320, bpm: 110, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script src="../../lib/gesture.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

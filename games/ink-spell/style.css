@@ -1,0 +1,51 @@
+:root { color-scheme: light; --ink: #2b2233; --paper: #f3ebdc; --clay: #d97757; --cream: #fff5e2; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #f3ebdc; color: var(--ink);
+  font: 18px/1.35 "Gaegu", ui-rounded, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
+#game { position: fixed; inset: 0; width: 100vw; height: 100dvh; display: block; touch-action: none; cursor: crosshair; }
+.p5Canvas { display: none !important; }
+
+.screen { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; z-index: 5;
+  background: radial-gradient(ellipse at center, rgba(243,235,220,.2), rgba(243,235,220,.75)); }
+.screen[hidden] { display: none; }
+.card { width: min(520px, 100%); max-height: calc(100dvh - 32px); overflow: auto; text-align: center;
+  background: rgba(255,245,226,.94); border: 3px solid var(--ink); border-radius: 22px 18px 24px 16px / 16px 24px 18px 22px;
+  box-shadow: 5px 6px 0 rgba(43,34,51,.35); padding: 22px 22px 18px; }
+.card.slim { width: min(360px, 100%); }
+.card.wide { width: min(760px, 100%); }
+.logo { font: 400 clamp(40px, 11vw, 64px)/1 "Permanent Marker", cursive; margin: 0 0 6px; color: var(--clay);
+  text-shadow: 3px 4px 0 var(--ink); letter-spacing: .02em; }
+.logo small { display: block; font: 700 26px/1.2 "Gaegu", cursive; color: var(--ink); text-shadow: none; margin-top: 4px; }
+h2 { font: 400 34px/1.1 "Permanent Marker", cursive; margin: 0 0 6px; color: var(--clay); text-shadow: 2px 3px 0 var(--ink); }
+.lead { margin: 6px 0 12px; font-size: 20px; }
+.best { margin: 10px 0 0; opacity: .75; }
+.row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+.row.small { margin-top: 14px; }
+button, a.ghost { font: 700 20px "Gaegu", cursive; color: var(--ink); cursor: pointer; text-decoration: none; }
+.big { font-size: 28px; padding: 8px 34px 10px; background: var(--clay); color: #fff; border: 3px solid var(--ink);
+  border-radius: 16px 12px 18px 12px; box-shadow: 3px 4px 0 var(--ink); }
+.big:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.ghost { background: none; border: 2px dashed rgba(43,34,51,.4); border-radius: 12px; padding: 4px 14px; }
+
+.spells { list-style: none; padding: 0; margin: 8px 0 4px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.clawd-portrait { width: 150px; height: 125px; display: block; margin: -8px auto -6px; }
+.spells li { background: #fff; border: 2px solid rgba(43,34,51,.25); border-radius: 12px; padding: 4px 3px 4px; font-size: 14px; line-height: 1.05; }
+.spells canvas { width: 54px; height: 40px; display: block; margin: 0 auto 2px; }
+.spells b { display: block; font-size: 18px; }
+@media (max-width: 420px) { .spells { grid-template-columns: repeat(3, 1fr); } }
+
+.bar { height: 16px; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; margin-top: 10px; }
+.bar i { display: block; height: 100%; width: 0; background: var(--clay); transition: width .15s; }
+
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 8px; }
+.choice { background: #fff; border: 3px solid var(--ink); border-radius: 16px 12px 18px 14px; padding: 12px 10px 14px;
+  box-shadow: 3px 4px 0 rgba(43,34,51,.4); text-align: center; transition: transform .12s; }
+.choice:hover, .choice:focus-visible { transform: translateY(-4px) rotate(-1deg); outline: none; }
+.choice .ico { font: 400 34px/1 "Permanent Marker", cursive; color: var(--clay); }
+.choice b { display: block; font-size: 23px; margin: 4px 0 2px; }
+.choice span { font-size: 17px; opacity: .85; }
+
+.hud-buttons { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: 12px; z-index: 4; }
+.hud-buttons button { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ink); background: rgba(255,245,226,.9);
+  font: 400 16px "Permanent Marker", cursive; box-shadow: 2px 2px 0 rgba(43,34,51,.4); }
+.hud-buttons[hidden] { display: none; }

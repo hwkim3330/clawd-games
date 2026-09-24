@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clawd Arcade</title>
+<meta name="description" content="Original browser games starring a hand-painted Clawd.">
+<link rel="icon" href="lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<style>
+  :root { --ink: #2b2233; --paper: #f3ebdc; --clay: #d97757; color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 19px/1.4 "Gaegu", ui-rounded, sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 28px) 16px 48px; }
+  h1 { font: 400 clamp(44px, 10vw, 76px)/1 "Permanent Marker", cursive; color: var(--clay); text-shadow: 3px 4px 0 var(--ink); margin: 0; text-align: center; }
+  .sub { text-align: center; margin: 10px 0 26px; font-size: 21px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  a.game { display: block; color: inherit; text-decoration: none; background: #fffaf0; border: 3px solid var(--ink);
+    border-radius: 20px 16px 22px 14px / 14px 22px 16px 20px; box-shadow: 4px 5px 0 rgba(43,34,51,.35); overflow: hidden; transition: transform .12s; }
+  a.game:hover, a.game:focus-visible { transform: translateY(-4px) rotate(-.6deg); outline: none; }
+  a.game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-bottom: 3px solid var(--ink); background: #eee4d2; }
+  a.game div { padding: 10px 14px 14px; }
+  a.game b { font: 400 26px/1.1 "Permanent Marker", cursive; color: var(--clay); }
+  a.game small { display: block; font-size: 15px; opacity: .7; margin-top: 2px; }
+  a.game p { margin: 6px 0 0; font-size: 18px; }
+  .soon { opacity: .55; pointer-events: none; }
+  footer { margin-top: 36px; text-align: center; font-size: 15px; opacity: .75; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Clawd Arcade</h1>
+  <p class="sub">손그림 클로가 나오는 오리지널 브라우저 게임 모음 · Original games with a hand-painted Clawd</p>
+  <div class="grid" id="grid"></div>
+  <footer>
+    Clawd painting: <a href="https://github.com/JohnHeibel/ClaudeAnimationBase">Claude Animation Base</a> (MIT) · p5.js + p5.brush<br>
+    Unofficial fan project, not affiliated with Anthropic · <a href="https://github.com/hwkim3330/clawd-games">GitHub</a>
+  </footer>
+</main>
+<script>
+  const GAMES = [
+    { path: 'games/ink-spell/', name: 'Ink Spell', ko: '잉크 주문', genre: 'Drawing · Defense',
+      desc: '모양을 그리면 주문이 된다. 선은 베기, 원은 방패, 지그재그는 번개 — 잉크 괴물로부터 클로를 지켜라.' },
+  ];
+  const g = document.getElementById('grid');
+  for (const x of GAMES) {
+    g.insertAdjacentHTML('beforeend', `<a class="game${x.soon ? ' soon' : ''}" href="${x.path}"><img src="${x.path}thumb.jpg" alt="" loading="lazy"><div><b>${x.name}</b> ${x.ko}<small>${x.genre}</small><p>${x.desc}</p></div></a>`);
+  }
+</script>
+</body>
+</html>
