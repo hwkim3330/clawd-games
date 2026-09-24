@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Clawd's Quest — 클로의 모험</title>
+<meta name="description" content="A hand-painted top-down adventure: pencil sword, ink bombs, a dungeon and the Ink Kraken.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../lib/ui.css">
+</head>
+<body class="menu">
+<canvas class="game" id="game"></canvas>
+<div class="screen" id="loading"><div class="card slim"><h1 class="logo">Clawd's Quest</h1><p id="load-text"></p><div class="bar"><i id="load-bar"></i></div></div></div>
+<div class="screen" id="title" hidden>
+  <div class="card">
+    <canvas class="clawd-portrait" width="360" height="300"></canvas>
+    <h1 class="logo">Clawd's Quest <small>클로의 모험</small></h1>
+    <p class="lead" data-t="lead"></p>
+    <div class="row" id="title-buttons"></div>
+    <p class="keys" data-t-html="keys"></p>
+    <div class="row"><button class="ghost" id="btn-sound"></button><a class="ghost" href="../../" data-t="more"></a></div>
+  </div>
+</div>
+<div class="screen" id="msg" hidden>
+  <div class="card"><canvas class="clawd-portrait" width="360" height="300"></canvas><h2 id="msg-title"></h2><p class="lead" id="msg-text"></p><div class="row" id="msg-buttons"></div></div>
+</div>
+<button class="hud-btn" id="btn-pause" hidden aria-label="pause">II</button>
+
+<script>const PROJECT = { w: 256, h: 256, bpm: 110, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script src="../../lib/input.js"></script>
+<script src="world.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

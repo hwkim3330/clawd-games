@@ -19,6 +19,7 @@ These are original browser games starring Clawd, painted in watercolour and ink.
 |---|---|---|
 | [Ink Spell](games/ink-spell/) · 잉크 주문 | drawing · wave defense | the shape you draw is the spell: line/circle/zigzag/triangle/spiral/square, anything else becomes a wall |
 | [Clawd Gulp](games/clawd-gulp/) · 클로 꿀꺽 | copy-ability platformer | Clawd's lunchbox lid opens to inhale; swallow to copy fire / spark / pencil sword; float; the Smudge King |
+| [Clawd's Quest](games/clawd-quest/) · 클로의 모험 | top-down adventure | 3×3 overworld + dungeon: cut bushes, key → locked door → bombs → cracked wall → Ink Kraken; autosave |
 | [Clawd Leap](games/clawd-leap/) · 클로 점프 | platformer | four painted pages, stamp boxes, an ink-throwing hat, the Great Eraser; coyote time + jump buffer |
 
 ## How Clawd is drawn

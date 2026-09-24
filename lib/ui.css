@@ -50,3 +50,18 @@ button, a.ghost { font: 700 20px "Gaegu", cursive; color: var(--ink); cursor: po
 .pf-ab .pf-a { width: 76px; height: 76px; background: rgba(217,119,87,.85); color: #fff; }
 .pf-ab .pf-b { margin-bottom: 30px; }
 body.menu .pf-pad { display: none !important; }
+
+/* touch joystick + buttons (top-down games) */
+.gi-pad { position: fixed; inset: 0; z-index: 3; display: none; touch-action: none; }
+.gi-pad.show { display: block; }
+body.menu .gi-pad { display: none !important; }
+.gi-stick { position: fixed; left: 90px; bottom: 90px; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%;
+  border: 3px solid rgba(43,34,51,.35); background: rgba(255,245,226,.3); opacity: .45; pointer-events: none; }
+.gi-stick.on { opacity: 1; }
+.gi-stick:not(.on) { left: 90px !important; top: auto !important; bottom: 40px; margin: 0; }
+.gi-stick i { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px; border-radius: 50%; background: rgba(217,119,87,.85); border: 3px solid var(--ink); }
+.gi-btns { position: fixed; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); display: flex; gap: 12px; align-items: flex-end; flex-direction: row-reverse; }
+.gi-btns button { width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--ink); background: rgba(255,245,226,.85); font: 400 20px "Permanent Marker", cursive; box-shadow: 2px 3px 0 rgba(43,34,51,.4); touch-action: none; }
+.gi-btns button:first-child { width: 80px; height: 80px; background: rgba(217,119,87,.9); color: #fff; }
+.gi-btns button:nth-child(2) { margin-bottom: 40px; }
+.gi-btns button.on { transform: scale(.94); }
