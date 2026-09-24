@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ink Beat — 잉크 비트</title>
+<meta name="description" content="A rhythm game you play by drawing: draw each shape as its beat lands and Clawd dances.">
+<link rel="icon" href="../../lib/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="../../lib/ui.css">
+<style>
+  .songs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0; }
+  .songs button { background: #fff; border: 3px solid var(--ink); border-radius: 14px; padding: 8px 6px 10px; box-shadow: 3px 4px 0 rgba(43,34,51,.35); font-size: 20px; }
+  .songs button b { display: block; font: 400 26px "Permanent Marker", cursive; color: var(--clay); }
+  .songs button small { display: block; font-size: 15px; opacity: .75; }
+  .legend { list-style: none; padding: 0; margin: 6px 0; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .legend li { background: #fff; border: 2px solid rgba(43,34,51,.25); border-radius: 10px; padding: 2px 6px; font-size: 15px; }
+  .legend canvas { width: 45px; height: 35px; display: block; margin: 0 auto; }
+  canvas.game { cursor: crosshair; }
+</style>
+</head>
+<body class="menu">
+<canvas class="game" id="game"></canvas>
+<div class="screen" id="loading"><div class="card slim"><h1 class="logo">Ink Beat</h1><p id="load-text"></p><div class="bar"><i id="load-bar"></i></div></div></div>
+<div class="screen" id="title" hidden>
+  <div class="card">
+    <canvas class="clawd-portrait" width="360" height="300"></canvas>
+    <h1 class="logo">Ink Beat <small>잉크 비트</small></h1>
+    <p class="lead" id="lead"></p>
+    <ul class="legend" id="legend"></ul>
+    <div class="songs" id="songs"></div>
+    <p class="keys" id="keys"></p>
+    <div class="row"><a class="ghost" href="../../" id="more"></a></div>
+  </div>
+</div>
+<div class="screen" id="msg" hidden><div class="card"><canvas class="clawd-portrait" width="360" height="300"></canvas><h2 id="msg-title"></h2><p class="lead" id="msg-text"></p><div class="row" id="msg-buttons"></div></div></div>
+
+<script>const PROJECT = { w: 256, h: 256, bpm: 90, offset: 0, duration: 1e9 };</script>
+<script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5.brush@2.2.3/dist/p5.brush.js"></script>
+<script src="../../vendor/claude-animation-base/core.js"></script>
+<script src="../../vendor/claude-animation-base/clawd.js"></script>
+<script src="../../lib/clawd-sprites.js"></script>
+<script src="../../lib/ink.js"></script>
+<script src="../../lib/sfx.js"></script>
+<script src="../../lib/gesture.js"></script>
+<script>
+  const KO = (navigator.language || 'ko').toLowerCase().startsWith('ko');
+  document.getElementById('lead').textContent = KO ? '카드가 동그라미에 닿는 박자에 맞춰 그 모양을 그리세요. 펜을 떼는 순간이 판정! 맞히면 클로가 춤을 춰요.' : 'Draw each card\'s shape so your pen lifts as it reaches the ring. Hit it and Clawd dances!';
+  document.getElementById('keys').innerHTML = KO ? '마우스·터치·펜으로 그리기 · <kbd>Esc</kbd> 그만두기 · 소리를 켜고 하세요' : 'draw with mouse, touch or pen · <kbd>Esc</kbd> quit · play with sound on';
+  document.getElementById('more').textContent = KO ? '다른 게임' : 'More games';
+</script>
+<script src="game.js"></script>
+</body>
+</html>
