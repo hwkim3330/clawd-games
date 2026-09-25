@@ -51,7 +51,7 @@
 .pick small { font-size: 14px; opacity: .8; }
 body.menu .frame, body.menu #zone, body.menu #minimap, body.menu #drops, body.menu #tracker, body.menu #log, body.menu #actionbar, body.menu #plates { display: none; }
 @media (max-width: 700px) {
-  .frame { width: 170px; } .frame.target { left: auto; right: 12px; top: 170px; }
+  .frame { width: 170px; } .frame.target { left: auto; right: 12px; top: 170px; } #zone { top: 86px; left: 12px; translate: none; font-size: 16px; }
   #minimap { width: 100px; height: 100px; } #drops { top: 116px; } #tracker { top: 150px; width: 170px; } #tracker div { font-size: 13px; }
   #bar button { width: 54px; height: 54px; font-size: 10px; padding-top: 16px; }
   #actionbar { left: auto; right: 10px; translate: none; bottom: 16px; } #bar { flex-wrap: wrap; width: 190px; justify-content: flex-end; }

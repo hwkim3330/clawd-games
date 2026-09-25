@@ -511,7 +511,7 @@ function hud() {
   if (target && MOB[target.kind] && !target.dead) { tf.hidden = false; const K = MOB[target.kind]; $('tf-name').textContent = `${K.name} · Lv ${K.lvl}${K.elite ? ' ★' : K.boss ? ' ☠' : ''}`; $('tf-hp').style.width = `${target.hp / target.max * 100}%`; $('tf-hp-t').textContent = `${Math.max(0, Math.ceil(target.hp))} / ${target.max}`; }
   else tf.hidden = true;
   $('zone').textContent = zoneAt(player.x, player.z);
-  [...$('bar').children].forEach((el, i) => { const A = C.abilities[i]; const cd = Math.max(cds[i], A.gcd ? gcd : 0), total = cds[i] > 0 ? A.cd : 1.2; el.querySelector('i').style.height = `${cd > 0 ? cd / total * 100 : 0}%`; el.classList.toggle('nomana', S.mp < A.cost); });
+  [...$('bar').children].forEach((el, i) => { const A = C.abilities[i]; if (!A) return; const cd = Math.max(cds[i], A.gcd ? gcd : 0), total = cds[i] > 0 ? A.cd : 1.2; el.querySelector('i').style.height = `${cd > 0 ? cd / total * 100 : 0}%`; el.classList.toggle('nomana', S.mp < A.cost); });
   // minimap
   const mm = $('minimap'), g = mm.getContext('2d'), w = mm.width, s = w / WORLD;
   g.clearRect(0, 0, w, w); g.drawImage(minimapBase, 0, 0, w, w);
